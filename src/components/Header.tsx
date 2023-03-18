@@ -1,14 +1,17 @@
 import React from "react";
-import { Typography } from "@mui/material";
+import { Typography, Box, useMediaQuery, useTheme } from "@mui/material";
 
 const Header = () => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("sm"));
+  const headerVariant = matches ? "h4" : "h3";
+
   return (
-    <>
-      <Typography variant="h2" sx={{ margin: "1rem" }} id="top">
-        {" "}
+    <Box sx={{ margin: "1rem", textAlign: "center" }}>
+      <Typography variant={headerVariant} id="top">
         Frontend Challenge
       </Typography>
-    </>
+    </Box>
   );
 };
 

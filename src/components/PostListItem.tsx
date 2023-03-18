@@ -12,12 +12,13 @@ const PostListItem = React.forwardRef(({ post }: { post: Post }, ref) => {
         <Typography variant="h5" component="div">
           {post.title}
         </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          Post ID
-        </Typography>
-        <Typography variant="body2">
-          {post.id}
-          <br />
+        <br />
+        <Typography
+          sx={{ mb: 1.5, fontSize: 14 }}
+          color="text.secondary"
+          gutterBottom
+        >
+          Post ID : {post.id}
         </Typography>
       </CardContent>
     </>

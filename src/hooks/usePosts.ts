@@ -1,4 +1,3 @@
-import { AxiosError } from "axios";
 import { useState, useEffect } from "react";
 import { getPosts } from "../api/axios";
 
@@ -30,7 +29,7 @@ const usePosts = (pageNumber = 1) => {
         //if the error is aborted error, return null
         if (signal.aborted) return;
         setIsError(true);
-        setError({ message: "Oops, something wrong" });
+        setError({ message: error.message });
       });
 
     //clean up the request

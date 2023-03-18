@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
 import { getPost } from "../api/axios";
+import { Post } from "../typings/types";
 
-const usePostDetail = (id: number) => {
-  const [post, setPost] = useState();
+const usePostDetail = (id: string) => {
+  const [post, setPost] = useState<Post>();
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [error, setError] = useState({});
+  const [error, setError] = useState<{ message: string } | null>();
 
   useEffect(() => {
     setIsLoading(true);
-    setError({});
+    setError(null);
 
     getPost(id)
       .then((data) => {

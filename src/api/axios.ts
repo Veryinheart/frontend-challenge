@@ -9,7 +9,7 @@ export const getPosts = async (pageNumber = 1, options = {}) => {
   return response.data;
 };
 
-export const getPost = async (id: number) => {
+export const getPost = async (id: string) => {
   const response = await api.get(`/posts/${id}`);
   return response.data;
 };
