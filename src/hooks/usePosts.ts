@@ -1,24 +1,20 @@
+import { AxiosError } from "axios";
 import { useState, useEffect } from "react";
 import { getPosts } from "../api/axios";
 
-type Posts = {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-};
+import { Post } from "../typings/types";
 
 const usePosts = (pageNumber = 1) => {
-  const [posts, setPosts] = useState<Posts[]>([]);
+  const [posts, setPosts] = useState<Post[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [error, setError] = useState({});
+  const [error, setError] = useState<{ message: string } | null>();
   const [hasNextPage, setHasNextPage] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
     setIsError(false);
-    setError({});
+    setError(null);
 
     const controller = new AbortController();
     const { signal } = controller;
@@ -32,9 +28,9 @@ const usePosts = (pageNumber = 1) => {
       .catch((error) => {
         setIsLoading(false);
         //if the error is aborted error, return null
-        if (signal.aborted) return null;
+        if (signal.aborted) return;
         setIsError(true);
-        setError({ message: error.message });
+        setError({ message: "Oops, something wrong" });
       });
 
     //clean up the request

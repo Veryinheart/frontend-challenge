@@ -1,11 +1,12 @@
 import React from "react";
 import { Typography } from "@mui/material";
+
 const Header = () => {
   return (
     <>
-      <Typography variant="h2" sx={{ margin: "1rem" }}>
+      <Typography variant="h2" sx={{ margin: "1rem" }} id="top">
         {" "}
-        &infin;Frontend Challenge Infinite Scroll
+        Frontend Challenge
       </Typography>
     </>
   );
