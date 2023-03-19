@@ -7,7 +7,7 @@ const Header = () => {
   const headerVariant = matches ? "h4" : "h3";
 
   return (
-    <Box sx={{ margin: "1rem", textAlign: "center" }}>
+    <Box sx={{ margin: "1rem", textAlign: "center", color: "white" }}>
       <Typography variant={headerVariant} id="top">
         Frontend Challenge
       </Typography>

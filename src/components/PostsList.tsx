@@ -1,7 +1,7 @@
 import { useState, useRef, useCallback } from "react";
 import usePosts from "../hooks/usePosts";
 import PostListItem from "./PostListItem";
-import { Link } from "@mui/material";
+import { Link, Box, Typography } from "@mui/material";
 
 const PostsList = () => {
   const [pageNumber, setPageNumber] = useState(1);
@@ -16,16 +16,14 @@ const PostsList = () => {
   const intObserver = useRef<IntersectionObserver | null>();
   const lastPostRef = useCallback(
     (post: Element) => {
-      //console.log("what is this post?", post);
       if (isLoading) return;
-      //console.log("what is this ref current", intObserver.current);
+
       if (intObserver.current) intObserver.current.disconnect();
-      //reassign a new observer to the last post
+      //assign observer to the  post
       intObserver.current = new IntersectionObserver((posts) => {
         console.log("this is entry", posts);
 
         if (posts[0].isIntersecting && hasNextPage) {
-          //console.log("first one", post[0].isIntersecting);
           console.log("We are near the last post!");
           setPageNumber((prev) => prev + 1);
         }
@@ -57,10 +55,18 @@ const PostsList = () => {
     <>
       {content}
       <br />
-      {isLoading && <p className="center">Loading More Posts...</p>}
-      <p>
-        <Link href="#top">Back to Top</Link>
-      </p>
+      {isLoading && (
+        <Typography variant="body1" sx={{ color: "whitesmoke" }}>
+          Loading More Posts...
+        </Typography>
+      )}
+      <Box sx={{ margin: "1rem" }}>
+        <Link href="#top" underline="none">
+          <Typography variant="button" sx={{ color: "whitesmoke" }}>
+            Back to Top
+          </Typography>
+        </Link>
+      </Box>
     </>
   );
 };
