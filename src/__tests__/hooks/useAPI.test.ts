@@ -1,8 +1,9 @@
-import { renderHook, act } from "@testing-library/react";
+import { renderHook, act, waitFor } from "@testing-library/react";
 import { rest } from "msw";
 import { setupServer } from "msw/node";
-
 import useAPI from "../../hooks/useAPI";
+
+// please ignore this file, it's not relevant with the project.
 
 const server = setupServer(
   rest.get("/api", (req, res, ctx) => {
@@ -17,10 +18,10 @@ afterAll(() => server.close());
 test("should increment", async () => {
   const { result } = renderHook(() => useAPI());
 
-  //   await waitForNextUpdate();
-  //   act(() => {
-  //     result.current.name
-  //   });
+  await waitFor(() => {
+    expect(result.current).toEqual({ name: "Jack" });
+  });
 
-  expect(result.current).toEqual({ name: "Jack" });
+  //   await waitForNextUpdate();
+  //expect(result.current).toEqual({ name: "Jack" });
 });
