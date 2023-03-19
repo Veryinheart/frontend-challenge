@@ -2,7 +2,6 @@ import { renderHook, waitFor } from "@testing-library/react";
 import { rest } from "msw";
 import { setupServer } from "msw/node";
 import usePostDetail from "../../hooks/usePostDetail";
-const axios = require("axios");
 
 const server = setupServer(
   rest.get("/api", (req, res, ctx) => {
