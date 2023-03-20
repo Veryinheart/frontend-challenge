@@ -2,11 +2,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-After downloading the project, In the project directory, you need run the below code to install dependencies:
+After downloading the project, In the project directory, you can run the below code to install dependencies:
 
 ### `npm install`
 
-Once installing completed,In the project directory, you can run:
+Once installing has completed, In the project directory, you can run:
 
 ### `npm start`
 
@@ -15,8 +15,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.
-For testing, hit by same issue opened under Axios github repo, it might be a bug with Jest and Axios, see the [Issue link](https://github.com/axios/axios/issues/5026)
-Tried the suggested workaround but none of them worked for me. still trying to figure out.
+Launches the test runner in the interactive watch mode.\
+
+For testing part, I got an issue opened under Axios github repo, it might be a bug with Jest and Axios, see the [Issue link](https://github.com/axios/axios/issues/5026)
+
+Tried the suggested solutions but none of them worked for me. Working on it...
 
 Thanks for your time and patience!

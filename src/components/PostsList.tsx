@@ -1,7 +1,14 @@
 import { useState, useRef, useCallback } from "react";
 import usePosts from "../hooks/usePosts";
 import PostListItem from "./PostListItem";
-import { Link, Box, Typography } from "@mui/material";
+import {
+  Link,
+  Box,
+  Typography,
+  Card,
+  CardContent,
+  Skeleton,
+} from "@mui/material";
 
 const PostsList = () => {
   const [pageNumber, setPageNumber] = useState(1);
@@ -56,9 +63,30 @@ const PostsList = () => {
       {content}
       <br />
       {isLoading && (
-        <Typography variant="body1" sx={{ color: "whitesmoke" }}>
-          Loading More Posts...
-        </Typography>
+        <Box sx={{ margin: "1rem" }}>
+          <Card>
+            <CardContent>
+              <Skeleton
+                animation="wave"
+                height={20}
+                style={{ marginBottom: 6 }}
+                width="20%"
+              />
+              <Skeleton
+                animation="wave"
+                height={20}
+                style={{ marginBottom: 10 }}
+                width="90%"
+              />
+              <Skeleton
+                animation="wave"
+                height={10}
+                style={{ marginBottom: 6 }}
+                width="20%"
+              />
+            </CardContent>
+          </Card>
+        </Box>
       )}
       <Box sx={{ margin: "1rem" }}>
         <Link href="#top" underline="none">

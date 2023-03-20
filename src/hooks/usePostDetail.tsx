@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getPost } from "../api/axios";
+import { getPost } from "../api/api";
 import { Post } from "../typings/types";
 
 const usePostDetail = (id: string) => {

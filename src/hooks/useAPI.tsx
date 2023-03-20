@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-// this is a demo mock hook for testing
+// this is a mock hook for testing
 export default function useAPI() {
   const [data, setData] = useState<{
     name: string;

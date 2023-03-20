@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getPosts } from "../api/axios";
+import { getPostsList } from "../api/api";
 
 import { Post } from "../typings/types";
 
@@ -18,7 +18,7 @@ const usePosts = (pageNumber = 1) => {
     const controller = new AbortController();
     const { signal } = controller;
 
-    getPosts(pageNumber, { signal })
+    getPostsList(pageNumber, { signal })
       .then((data) => {
         setPosts((pre) => [...pre, ...data]);
         setHasNextPage(Boolean(data.length));

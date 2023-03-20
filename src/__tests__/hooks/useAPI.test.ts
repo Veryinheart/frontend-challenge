@@ -7,7 +7,7 @@ import useAPI from "../../hooks/useAPI";
 
 const server = setupServer(
   rest.get("/api", (req, res, ctx) => {
-    return res(ctx.json({ name: "Jack" }));
+    return res(ctx.json({ name: "Daniel" }));
   })
 );
 
@@ -19,9 +19,9 @@ test("should increment", async () => {
   const { result } = renderHook(() => useAPI());
 
   await waitFor(() => {
-    expect(result.current).toEqual({ name: "Jack" });
+    expect(result.current).toEqual({ name: "Daniel" });
   });
 
-  //   await waitForNextUpdate();
+  //await waitForNextUpdate();
   //expect(result.current).toEqual({ name: "Jack" });
 });
